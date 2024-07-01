@@ -55,7 +55,7 @@ const EditorButton = ({
     });
 
     try {
-      await axios.post("http://localhost:3000/news/create", data);
+      await axios.post(`${process.env.REACT_APP_BASE_URL}/news/create`, data);
       onSetSuccessMessage("Post created successfully!");
       resetForm();
     } catch (error) {

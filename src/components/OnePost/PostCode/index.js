@@ -1,10 +1,8 @@
-import React from "react";
 import ReactMarkdown from "react-markdown";
 import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
 import { okaidia } from "react-syntax-highlighter/dist/esm/styles/prism";
 
-
-const OnePostCode = ({ content }) => {
+const PostCode = ({ content }) => {
   return (
     <ReactMarkdown
       children={content}
@@ -31,4 +29,4 @@ const OnePostCode = ({ content }) => {
   );
 };
 
-export default OnePostCode;
+export default PostCode;
