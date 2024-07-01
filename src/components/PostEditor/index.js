@@ -33,7 +33,7 @@ const PostEditor = () => {
   };
 
   return (
-    <div className={styles.newsEditor}>
+    <section className={styles.newsEditor}>
       <h1>News Editor</h1>
       {error && <div className={styles.error}>{error}</div>}
       {successMessage && <div className={styles.success}>{successMessage}</div>}
@@ -53,7 +53,7 @@ const PostEditor = () => {
         />
       </form>
       <PreviewButton post={post} />
-    </div>
+    </section>
   );
 };
 

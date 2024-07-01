@@ -1,0 +1,20 @@
+.appHeader {
+  background-color: #282c34;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  padding: 10px 30px;
+  font-size: 15px;
+  color: white;
+  .linkWrapper {
+    display: flex;
+    gap: 10px;
+    margin-left: auto;
+  }
+
+  .link {
+    color: white;
+    text-decoration: none;
+  }
+}

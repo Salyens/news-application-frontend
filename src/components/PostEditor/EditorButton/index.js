@@ -1,7 +1,8 @@
 import { useState } from "react";
 import axios from "axios";
 import { format } from "date-fns";
-import Loader from "../../../components/Loader";
+import Loader from "../../Loader";
+import ApiService from "../../../services/ApiService";
 
 const EditorButton = ({
   post,
@@ -55,7 +56,7 @@ const EditorButton = ({
     });
 
     try {
-      await axios.post(`${process.env.REACT_APP_BASE_URL}/news/create`, data);
+      await ApiService.create(data);
       onSetSuccessMessage("Post created successfully!");
       resetForm();
     } catch (error) {
