@@ -2,14 +2,40 @@ import React, { useState } from "react";
 import axios from "axios";
 import { format } from "date-fns";
 import Loader from "../../../components/Loader";
-import styles from "./editorbutton.module.scss";
 
-const EditorButton = ({ post, setError, resetForm }) => {
+const EditorButton = ({
+  post,
+  onSetError,
+  onSetPost,
+  fileInputRef,
+  onSetSuccessMessage,
+}) => {
   const [isLoading, setIsLoading] = useState(false);
+
+  const resetForm = () => {
+    onSetPost({
+      title: "",
+      description: "",
+      quote: "",
+      code: "",
+      files: [],
+      publishAt: null,
+    });
+
+    if (fileInputRef.current) {
+      fileInputRef.current.value = null;
+    }
+  };
 
   const handleSubmit = async () => {
     setIsLoading(true);
-    setError(null);
+    onSetError(null);
+    onSetSuccessMessage(null);
+
+    if (!post.title || !post.description) {
+      setIsLoading(false);
+      return onSetError("Post and description are required");
+    }
 
     const data = new FormData();
     data.append("title", post.title);
@@ -24,23 +50,23 @@ const EditorButton = ({ post, setError, resetForm }) => {
       );
     }
 
-    post.files.forEach((file) => {
+    post.files.forEach(({ file }) => {
       data.append("files", file);
     });
 
     try {
       await axios.post("http://localhost:3000/news/create", data);
-      alert("Post created successfully!");
+      onSetSuccessMessage("Post created successfully!");
       resetForm();
     } catch (error) {
-      setError("Something went wrong. Please try again.");
+      onSetError("Something went wrong. Please try again.");
     } finally {
       setIsLoading(false);
     }
   };
 
   return (
-    <button type="button" className={styles.button} onClick={handleSubmit}>
+    <button type="button" className="editorButton" onClick={handleSubmit}>
       {isLoading ? <Loader /> : "Submit"}
     </button>
   );

@@ -1,13 +1,14 @@
 import React, { useState, useRef } from "react";
 import "react-datepicker/dist/react-datepicker.css";
-import styles from "./posteditor.module.scss";
 import EditorDate from "./EditorDate";
 import EditorText from "./EditorText";
 import EditorTitle from "./EditorTitle";
 import EditorQuote from "./EditorQuote";
 import EditorCode from "./EditorCode";
-import EditorFiles from "./EditorFiles";
 import EditorButton from "./EditorButton";
+import EditorFiles from "./EditorFiles";
+import PreviewButton from "./PreviewButton";
+import styles from "./posteditor.module.scss";
 
 const PostEditor = () => {
   const [post, setPost] = useState({
@@ -20,6 +21,7 @@ const PostEditor = () => {
   });
 
   const [error, setError] = useState(null);
+  const [successMessage, setSuccessMessage] = useState(null);
   const fileInputRef = useRef(null);
 
   const handleChange = (e) => {
@@ -30,32 +32,27 @@ const PostEditor = () => {
     }));
   };
 
-  const resetForm = () => {
-    setPost({
-      title: "",
-      description: "",
-      quote: "",
-      code: "",
-      files: [],
-      publishAt: null,
-    });
-
-    if (fileInputRef.current) fileInputRef.current.value = null;
-  };
-
   return (
     <div className={styles.newsEditor}>
       <h1>News Editor</h1>
       {error && <div className={styles.error}>{error}</div>}
-      <form>
+      {successMessage && <div className={styles.success}>{successMessage}</div>}
+      <form onSubmit={(e) => e.preventDefault()}>
         <EditorTitle title={post.title} handleChange={handleChange} />
         <EditorText post={post} onSetPost={setPost} />
         <EditorQuote quote={post.quote} handleChange={handleChange} />
         <EditorCode code={post.code} handleChange={handleChange} />
         <EditorFiles onSetPost={setPost} fileInputRef={fileInputRef} />
         <EditorDate onSetPost={setPost} />
-        <EditorButton post={post} setError={setError} resetForm={resetForm} />
+        <EditorButton
+          post={post}
+          onSetError={setError}
+          onSetPost={setPost}
+          fileInputRef={fileInputRef}
+          onSetSuccessMessage={setSuccessMessage}
+        />
       </form>
+      <PreviewButton post={post} />
     </div>
   );
 };

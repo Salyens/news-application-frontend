@@ -1,0 +1,24 @@
+.postContainer {
+    margin: 20px;
+    padding: 20px;
+    border: 2px solid #090088;
+    border-radius: 8px;
+
+  }
+  
+    .code {
+    background-color: #e8e8e8;
+    padding: 10px;
+    border-radius: 5px;
+    overflow-x: auto;
+  }
+  
+  
+  .link {
+    color: #0066cc;
+    text-decoration: none;
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+  

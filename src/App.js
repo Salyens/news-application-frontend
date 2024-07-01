@@ -1,11 +1,7 @@
 import PostEditor from "./components/PostEditor";
 
 function App() {
-  return (
-    <>
-      <PostEditor />
-    </>
-  );
+  return <PostEditor />;
 }
 
 export default App;

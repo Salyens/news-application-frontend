@@ -1,12 +1,17 @@
+import React from "react";
+import styles from "./editorcode.module.scss";
+
 const EditorCode = ({ code, handleChange }) => {
   return (
-    <textarea
-      name="code"
-      placeholder="Code (Markdown)"
-      value={code}
-      onChange={handleChange}
-      className="editorInput"
-    />
+    <div className={styles.editorCodeContainer}>
+      <textarea
+        name="code"
+        placeholder="Code (Markdown)"
+        value={code}
+        onChange={handleChange}
+        className={styles.editorInput}
+      />
+    </div>
   );
 };
 
