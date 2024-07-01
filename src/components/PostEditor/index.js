@@ -1,4 +1,4 @@
-import React, { useState, useRef } from "react";
+import { useState, useRef } from "react";
 import "react-datepicker/dist/react-datepicker.css";
 import EditorDate from "./EditorDate";
 import EditorText from "./EditorText";

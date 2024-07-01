@@ -1,4 +1,5 @@
 const EditorFiles = ({ onSetPost, fileInputRef }) => {
+  
   const handleFileChange = (e) => {
     const files = Array.from(e.target.files);
     const filePreviews = files.map((file) => {
@@ -24,7 +25,7 @@ const EditorFiles = ({ onSetPost, fileInputRef }) => {
       multiple
       accept=".jpeg, .jpg, .png, .pdf, .doc"
       onChange={handleFileChange}
-      className="fileInput"
+      className="editorInput"
       ref={fileInputRef}
     />
   );

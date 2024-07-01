@@ -1,16 +1,15 @@
-.App {
+.app {
     font-family: Arial, sans-serif;
     text-align: center;
   }
   
-  .App-header {
+  .appHeader {
     background-color: #282c34;
-    min-height: 10vh;
     display: flex;
-    flex-direction: column;
     align-items: center;
     justify-content: center;
-    font-size: calc(10px + 2vmin);
+    gap: 20px;
+    font-size: 15px;
     color: white;
     padding: 20px;
   }

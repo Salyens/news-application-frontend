@@ -1,14 +1,13 @@
-
-import styles from "./app.module.scss";
 import NotificationBell from "./components/NotificationBell";
-import { NotificationProvider } from "./components/NotificationContext";
 import  PostEditor  from "./components/PostEditor";
+import { NotificationProvider } from "./contexts/NotificationContext";
+import styles from "./app.module.scss";
 
 const App = () => {
   return (
     <NotificationProvider>
-      <div className={styles.App}>
-        <header className={styles["App-header"]}>
+      <div className={styles.app}>
+        <header className={styles.appHeader}>
           <h1>News Application</h1>
           <NotificationBell />
         </header>
