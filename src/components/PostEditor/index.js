@@ -19,7 +19,6 @@ const PostEditor = () => {
     files: [],
     publishAt: null,
   });
-
   const [error, setError] = useState(null);
   const [successMessage, setSuccessMessage] = useState(null);
   const fileInputRef = useRef(null);

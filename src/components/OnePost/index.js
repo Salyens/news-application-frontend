@@ -6,6 +6,7 @@ import PostDescription from "./PostDescription";
 import PostTitle from "./PostTitle";
 
 const OnePost = ({ post }) => {
+
   return (
     <div className={styles.postContainer}>
       <PostTitle title={post.title} />

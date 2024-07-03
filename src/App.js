@@ -8,23 +8,23 @@ import Header from "./components/Header";
 
 const App = () => {
   return (
-    <NotificationProvider>
-      <Router>
+    <Router>
+      <NotificationProvider>
         <Header />
-        <Routes>
-          <Route
-            path="/"
-            element={
-              <WithAuth>
-                <PostEditor />
-              </WithAuth>
-            }
-          />
-          <Route path="/login" element={<Login />} />
-          <Route path="/registration" element={<Registration />} />
-        </Routes>
-      </Router>
-    </NotificationProvider>
+      </NotificationProvider>
+      <Routes>
+        <Route
+          path="/"
+          element={
+            <WithAuth>
+              <PostEditor />
+            </WithAuth>
+          }
+        />
+        <Route path="/login" element={<Login />} />
+        <Route path="/registration" element={<Registration />} />
+      </Routes>
+    </Router>
   );
 };
 

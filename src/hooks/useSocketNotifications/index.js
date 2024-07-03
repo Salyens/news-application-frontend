@@ -9,7 +9,7 @@ const useSocketNotifications = () => {
 
   useEffect(() => {
     socket.current = io(
-      process.env.REACT_APP_API_URL || "http://localhost:3000"
+      process.env.REACT_APP_BASE_URL || "http://localhost:3000"
     );
 
     socket.current.on("newsCreated", (news) => {

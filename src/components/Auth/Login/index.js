@@ -29,10 +29,14 @@ const Login = () => {
     setSuccessMessage(null);
 
     try {
+      console.log("data: ", data);
       await ApiService.login(data);
+
       navigate("/");
     } catch (_) {
       setError("Invalid credentials. Please try again.");
+    } finally {
+      setIsLoading(false);
     }
   };
 
@@ -61,7 +65,7 @@ const Login = () => {
           required
         />
         <button type="submit" className={styles.button}>
-          {isLoading ? <Loader /> : "Register"}
+          {isLoading ? <Loader /> : "Login"}
         </button>
       </form>
     </div>

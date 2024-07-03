@@ -1,5 +1,4 @@
 import { useState } from "react";
-import axios from "axios";
 import { format } from "date-fns";
 import Loader from "../../Loader";
 import ApiService from "../../../services/ApiService";
