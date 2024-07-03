@@ -8,7 +8,10 @@ const useSocketNotifications = () => {
   const { setUnreadNotifications } = useContext(NotificationContext);
 
   useEffect(() => {
-    socket.current = io(`${process.env.REACT_APP_BASE_URL || "http://localhost:3000"}/news`);
+    socket.current = io(
+      `${process.env.REACT_APP_BASE_URL || "http://localhost:3000"}/news`,
+      { transports: ["websocket", "polling"] }
+    );
 
     socket.current.on("newsCreated", (news) => {
       setNotifications((prev) => [
