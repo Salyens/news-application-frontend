@@ -1,23 +1,35 @@
 {
-  "name": "post_app_backend",
-  "version": "0.1.0",
-  "private": true,
-  "dependencies": {
-    "@tinymce/tinymce-react": "^5.1.1",
-    "axios": "^1.7.2",
-    "date-fns": "^3.6.0",
-    "react": "^18.3.1",
-    "react-datepicker": "^7.2.0",
-    "react-dom": "^18.3.1",
-    "react-markdown": "^9.0.1",
-    "react-router-dom": "^6.24.0",
-    "react-scripts": "^5.0.1",
-    "react-syntax-highlighter": "^15.5.0",
-    "sass": "^1.77.6",
-    "socket.io-client": "^4.7.5"
-  },
+  "name": "post_app_front",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
   "scripts": {
-    "start": "react-scripts start"
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build"
+  },
+  "homepage": "https://salyens.github.io/news-application-frontend",
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^0.27.2",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "react-scripts": "5.0.1",
+    "gh-pages": "^5.0.0"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.4"
+  },
+  "eslintConfig": {
+    "extends": [
+      "react-app",
+      "react-app/jest"
+    ]
   },
   "browserslist": {
     "production": [
