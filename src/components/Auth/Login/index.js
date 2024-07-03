@@ -29,7 +29,6 @@ const Login = () => {
     setSuccessMessage(null);
 
     try {
-      console.log("data: ", data);
       await ApiService.login(data);
 
       navigate("/");
